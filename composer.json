@@ -1,0 +1,34 @@
+{
+    "name": "burhancelebi/elasticsearch",
+    "description": "ElasticSearch package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Burhan Çelebi",
+            "email": "burhan.celebi.2112@gmail.com"
+        }
+    ],
+
+    "require": {
+        "elasticsearch/elasticsearch": "^7.0",
+        "phpunit/phpunit": "^9"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "ElasticSearch\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "ElasticSearch\\Tests\\": "tests/"
+        }
+    },
+
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "^7.0@dev"
+    }
+}
