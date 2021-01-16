@@ -130,10 +130,10 @@ class Model extends Connection
     /**
      * Get all indices or specific index
      *
-     * @param  string $indices
+     * @param  mixed $indices
      * @return array
      */
-    protected function getIndices(string $indices = '*') :array
+    protected function getIndices($indices = '*') :array
     {
         return $this->client()->cat()->indices(['index' => $indices]);
     }
