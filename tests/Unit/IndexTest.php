@@ -94,6 +94,26 @@ final class IndexTest extends TestCase
             $this->assertTrue($index['acknowledged']);
     }
 
+    public function testCanGetIndicesInformation()
+    {
+        $index = $this->elastic
+                        ->query()
+                        ->getIndices();
+
+        $this->assertIsArray($index);
+    }
+
+    public function testCanGetSpecificIndicesInformation()
+    {
+        $index = $this->elastic
+                        ->query(['pointsort,location'])
+                        ->getIndices();
+
+                        dd($index);
+        $this->assertIsArray($index);
+        $this->assertSame(count($index), 1);
+    }
+
     public function testCanDeleteAnIndexIfIndexExists()
     {
         $exists = $this->checkIndex();
