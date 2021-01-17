@@ -51,7 +51,7 @@ Add this namespace to your class.
     
     // You can get specific index information.
     
-    $result = $elastic->query()->getIndices('pointsort,location');
+    $result = $elastic->query(['pointsort,location'])->getIndices();
     
     return $result;
     
@@ -987,12 +987,3 @@ Testing
 Run in the terminal
 
      ./vendor/bin/phpunit tests
-
-
-
-
-
-
-
-
-
