@@ -106,10 +106,9 @@ final class IndexTest extends TestCase
     public function testCanGetSpecificIndicesInformation()
     {
         $index = $this->elastic
-                        ->query(['pointsort,location'])
+                        ->query(['pointsort'])
                         ->getIndices();
 
-                        dd($index);
         $this->assertIsArray($index);
         $this->assertSame(count($index), 1);
     }
