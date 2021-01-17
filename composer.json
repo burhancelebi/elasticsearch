@@ -3,6 +3,10 @@
     "description": "ElasticSearch package",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "Burhan Çelebi",
+        "elasticsearch"
+    ],
     "authors": [
         {
             "name": "Burhan Çelebi",
