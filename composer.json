@@ -15,11 +15,11 @@
     ],
 
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "elasticsearch/elasticsearch": "^7.0"
     },
 
     "require-dev": {
-        "elasticsearch/elasticsearch": "^7.0",
         "orchestra/testbench": "^7.0@dev",
         "phpunit/phpunit": "^9"
     },
