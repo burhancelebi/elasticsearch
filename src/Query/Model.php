@@ -133,7 +133,7 @@ class Model extends Connection
      * @param  mixed $indices
      * @return array
      */
-    protected function getIndices($indices = '*') :array
+    protected function getIndices(array $indices = ['*']) :array
     {
         return $this->client()->cat()->indices(['index' => $indices]);
     }
