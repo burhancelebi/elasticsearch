@@ -46,17 +46,11 @@ abstract class TestCase extends OrchestraTestCase
         return $index;
     }
 
-    public function deleteIndex(string $name = null)
+    public function deleteIndex()
     {
-        $index_name = $this->getIndexName();
-        
-        if ( $name != null ) {
-            $index_name = $name;
-        }
-        
         $index = $this->elastic
                     ->index()
-                    ->name($index_name)
+                    ->name($this->getIndexName())
                     ->delete();
 
         return $index;

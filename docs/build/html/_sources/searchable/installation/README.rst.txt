@@ -1,0 +1,21 @@
+Installation
+========================
+
+[Download ElasticSearch](https://www.elastic.co/downloads/elasticsearch?latest)
+
+Install package via composer : 
+
+    composer require burhancelebi/elasticsearch
+
+Lumen
+-----------------------
+Add provider to your bootstrap/app.php
+
+    $app->register(ElasticSearch\ElasticSearchServiceProvider::class);
+    
+Laravel
+-----------------------
+Add to your config/app.php providers array
+
+    ElasticSearch\ElasticSearchServiceProvider::class,
+

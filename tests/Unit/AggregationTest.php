@@ -2,7 +2,7 @@
 
 use ElasticSearch\Tests\TestCase;
 
-final class Aggregation extends TestCase
+final class AggregationTest extends TestCase
 {
     public function testCanSearchUsingAggregation()
     {
