@@ -3,4 +3,4 @@ A modern Elasticsearch package
 
 Documentation
 ======================
-Read the extensive [document](https://github.com) on Read The Docs
+Read the extensive [document](https://modern-elasticsearch-package.readthedocs.io/en/latest/) on Read The Docs
