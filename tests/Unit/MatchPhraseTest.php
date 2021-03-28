@@ -18,6 +18,15 @@ final class MatchPhraseTest extends TestCase
 
     public function testCanUseMatchPhraseWithSlop()
     {
+        $this->elastic->document()
+        ->index($this->getIndexName())
+        ->body([
+            'name' => 'Elastic Search is really fast',
+        ])
+        ->save();
+
+        sleep(1);
+        
         $search = $this->elastic
                         ->matchPhrase()
                         ->index($this->getIndexName())
@@ -29,5 +38,6 @@ final class MatchPhraseTest extends TestCase
                         ->search(['hits']);
 
         $this->assertIsArray($search);
+        $this->assertSame($search['hits']['hits'][0]['_source']['name'], 'Elastic Search is really fast');
     }
 }

@@ -2,10 +2,17 @@
 
 namespace ElasticSearch\Query;
 
-use ElasticSearch\Connection;
+use ElasticSearch\Authentication\Connection;
 
-class Model extends Connection
-{    
+class Model
+{
+    private $client;
+    
+    public function client()
+    {
+        return $this->client = Connection::client();
+    }
+    
     /**
      * Function return search result
      *
@@ -136,5 +143,10 @@ class Model extends Connection
     protected function getIndices(array $indices = ['*']) :array
     {
         return $this->client()->cat()->indices(['index' => $indices]);
+    }
+
+    public function __call($function, $arg)
+    {
+        return $this->client()->$function($arg);
     }
 }

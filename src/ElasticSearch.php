@@ -3,6 +3,7 @@
 namespace ElasticSearch;
 
 use ElasticSearch\Facade\Searchable;
+use Elasticsearch\Client;
 
 class ElasticSearch
 {

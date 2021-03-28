@@ -29,6 +29,19 @@ class SaveDocument extends Model
     }
     
     /**
+     *
+     * @param  string $name
+     * @param  mixed $value
+     * @return self
+     */
+    public function setParam(string $name, $value) :self
+    {
+        $this->map[$name] = $value;
+
+        return $this;
+    }
+    
+    /**
      * Set the document id
      *
      * @param  int $id

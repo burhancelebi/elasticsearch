@@ -11,6 +11,7 @@ use ElasticSearch\Query\Mergeable\Highlight;
 use ElasticSearch\Query\GeoLocation\GeoShape;
 use ElasticSearch\Query\GeoLocation\GeoPoint;
 use ElasticSearch\Query\Aggregation;
+use ElasticSearch\Query\BoolQuery;
 
 class ElasticSearchServiceProvider extends ServiceProvider
 {
@@ -43,6 +44,10 @@ class ElasticSearchServiceProvider extends ServiceProvider
 
         $this->app->singleton('elastic.aggs', function ($app){
             return new Aggregation();
+        });
+
+        $this->app->singleton('elastic.bool', function ($app){
+            return new BoolQuery();
         });
 
         $this->app->singleton('geo_shape', function ($app){

@@ -91,4 +91,14 @@ final class QueryTest extends TestCase
 
         $this->assertIsArray($geo);
     }
+
+    public function testCanUseElasticSearchFunctions()
+    {
+        $query = $this->elastic
+                        ->query()
+                        ->cat()
+                        ->aliases();
+
+        $this->assertIsArray($query);
+    }
 }
