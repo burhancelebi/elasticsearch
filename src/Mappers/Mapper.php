@@ -70,4 +70,10 @@ class Mapper
             ]
         ]
     ];
+
+    const NESTED = [
+        'body'  => [
+            'nested' => []
+        ]
+    ];
 }

@@ -17,6 +17,10 @@ class Query extends Model
 
     public function __call($function, $arg)
     {
-        return $this->$function($this->map);
+        if (method_exists(get_parent_class(), $function) ) {
+            return $this->$function($this->map);
+        }
+
+        return parent::__call($function, $arg);
     }
 }

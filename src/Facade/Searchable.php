@@ -17,9 +17,30 @@ use ElasticSearch\Query\Aggregation;
 use ElasticSearch\Query\Mergeable\Suggest;
 use ElasticSearch\Query\GeoLocation\GeoShape;
 use ElasticSearch\Query\GeoLocation\GeoPoint;
+use Elasticsearch\ClientBuilder;
+use ElasticSearch\ConnectionBuilder;
+use Elasticsearch\Client;
+use ElasticSearch\Authentication\Connection;
+use ElasticSearch\Query\Relations\Nested;
 
 class Searchable
-{    
+{
+    public function client() :Connection
+    {
+        return new Connection();
+    }
+    
+    /**
+     * The nested type is a specialised version of the object data type that allows arrays of objects to be 
+     * indexed in a way that they can be queried independently of each other.
+     *
+     * @return Nested
+     */
+    public function nested() :Nested
+    {
+        return new Nested();
+    }
+
     /**
      * Allows you to add one or more sorts on specific fields. 
      * Each sort can be reversed as well. The sort is defined on a per field level, 
