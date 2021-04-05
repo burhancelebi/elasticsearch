@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Getting Started" href="../getting_started/README.html" />
-    <link rel="prev" title="Welcome to Elastic Search’s documentation!" href="../../index.html" /> 
+    <link rel="prev" title="Php Package for Elastic Search!" href="../../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -172,23 +172,28 @@
             
   <div class="section" id="installation">
 <h1><span class="section-number">1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>[Download ElasticSearch](<a class="reference external" href="https://www.elastic.co/downloads/elasticsearch?latest">https://www.elastic.co/downloads/elasticsearch?latest</a>)</p>
-<p>Install package via composer :</p>
+<div class="section" id="download-and-install-lasticsearch">
+<h2><span class="section-number">1.1. </span>Download and Install lasticSearch<a class="headerlink" href="#download-and-install-lasticsearch" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.elastic.co/downloads/elasticsearch?latest">https://www.elastic.co/downloads/elasticsearch?latest</a></p>
+</div>
+<div class="section" id="install-package-via-composer">
+<h2><span class="section-number">1.2. </span>Install package via composer :<a class="headerlink" href="#install-package-via-composer" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>composer require burhancelebi/elasticsearch</p>
 </div></blockquote>
+</div>
 <div class="section" id="lumen">
-<h2><span class="section-number">1.1. </span>Lumen<a class="headerlink" href="#lumen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Lumen<a class="headerlink" href="#lumen" title="Permalink to this headline">¶</a></h2>
 <p>Add provider to your bootstrap/app.php</p>
 <blockquote>
-<div><p>$app-&gt;register(ElasticSearchElasticSearchServiceProvider::class);</p>
+<div><p>$app-&gt;register(ElasticSearch\ElasticSearchServiceProvider::class);</p>
 </div></blockquote>
 </div>
 <div class="section" id="laravel">
-<h2><span class="section-number">1.2. </span>Laravel<a class="headerlink" href="#laravel" title="Permalink to this headline">¶</a></h2>
-<p>Add to your config/app.php providers array</p>
+<h2><span class="section-number">1.4. </span>Laravel<a class="headerlink" href="#laravel" title="Permalink to this headline">¶</a></h2>
+<p>Add provider namespace to your config/app.php providers array</p>
 <blockquote>
-<div><p>ElasticSearchElasticSearchServiceProvider::class,</p>
+<div><p>ElasticSearch\ElasticSearchServiceProvider::class,</p>
 </div></blockquote>
 </div>
 </div>
@@ -200,7 +205,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../getting_started/README.html" class="btn btn-neutral float-right" title="2. Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../../index.html" class="btn btn-neutral float-left" title="Welcome to Elastic Search’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Php Package for Elastic Search!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
