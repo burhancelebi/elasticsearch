@@ -1,7 +1,7 @@
 Installation
 ========================
 
-Download and Install lasticSearch
+Download and Install ElasticSearch
 ---------------------------------------
 https://www.elastic.co/downloads/elasticsearch?latest
 
