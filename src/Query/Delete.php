@@ -3,12 +3,14 @@
 namespace ElasticSearch\Query;
 
 class Delete extends Model
-{    
+{
+    private array $map = [];
+
     /**
      * Function provides to delete a document from ElasticSearch
      *
-     * @param  array $document
-     * @return Model deleteDocument
+     * @param array $document
+     * @return array
      */
     public function delete(array $document) :array
     {

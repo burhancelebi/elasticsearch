@@ -17,9 +17,9 @@ class GeoShape extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return GeoShape
      */
-    public function index(string $index) :self
+    public function index(string $index) :GeoShape
     {
         $this->map['index'] = $index;
 
@@ -29,11 +29,11 @@ class GeoShape extends Model
     /**
      * ElasticSearch geo shape field
      *
-     * @param string|nullable $shape
+     * @param string|null $shape
      * @link https://www.elastic.co/guide/en/elasticsearch/reference/current/shape.html#shape
-     * @return self
+     * @return GeoShape
      */
-    public function shape(string $shape = null) :self
+    public function shape(?string $shape = null) :GeoShape
     {
         if ( is_null($shape) ) {
             
@@ -49,9 +49,9 @@ class GeoShape extends Model
      * Search for a text
      *
      * @param  mixed $text
-     * @return self
+     * @return GeoShape
      */
-    public function text(string $text) :self
+    public function text(string $text) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['text'] = $text;
 
@@ -62,9 +62,9 @@ class GeoShape extends Model
      * Set the geo location type
      *
      * @param  mixed $type
-     * @return self
+     * @return GeoShape
      */
-    public function type(string $type) :self
+    public function type(string $type) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['type'] = $type;
 
@@ -75,9 +75,9 @@ class GeoShape extends Model
      * Set the coordinates
      *
      * @param  array $coordinates
-     * @return self
+     * @return GeoShape
      */
-    public function coordinates(array $coordinates) :self
+    public function coordinates(array $coordinates) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['coordinates'] = $coordinates;
 
@@ -88,9 +88,9 @@ class GeoShape extends Model
      * Set the geometries to use geometrycollection type
      *
      * @param  array $geometries
-     * @return self
+     * @return GeoShape
      */
-    public function geometries(array $geometries) :self
+    public function geometries(array $geometries) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['geometries'] = $geometries;
 
@@ -101,9 +101,9 @@ class GeoShape extends Model
      * Radius default value is METERS.
      *
      * @param  string $radius
-     * @return self
+     * @return GeoShape
      */
-    public function radius(string $radius) :self
+    public function radius(string $radius) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['radius'] = $radius;
 
@@ -114,9 +114,9 @@ class GeoShape extends Model
      * Optional. Vertex order for the shape’s coordinates list.
      *
      * @param  string $orientation
-     * @return self
+     * @return GeoShape
      */
-    public function orientation(string $orientation) :self
+    public function orientation(string $orientation) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['location'][$this->shape]['orientation'] = $orientation;
 
@@ -127,9 +127,9 @@ class GeoShape extends Model
      * The geo_shape strategy mapping parameter determines which spatial relation operators may be used at search time.
      *
      * @param  string $relation
-     * @return self
+     * @return GeoShape
      */
-    public function relation(string $relation) :self
+    public function relation(string $relation) :GeoShape
     {
         $this->map['body']['query']['geo_shape']['relation'] = $relation;
 

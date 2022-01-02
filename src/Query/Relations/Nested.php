@@ -3,7 +3,6 @@
 namespace ElasticSearch\Query\Relations;
 
 use ElasticSearch\Query\Model;
-use ElasticSearch\Mappers\Mapper;
 use ElasticSearch\Traits\ElasticQuery;
 use Closure;
 
@@ -13,21 +12,34 @@ class Nested extends Model
 
     private array $map = [];
 
-    public function index(string $name) 
+    /**
+     * @param string $name
+     * @return Nested
+     */
+    public function index(string $name): Nested
     {
         $this->map['index'] = $name;
 
         return $this;
     }
 
-    public function path(string $path) :self
+    /**
+     * @param string $path
+     * @return Nested
+     */
+    public function path(string $path) :Nested
     {
         $this->map['body']['query']['nested']['path'] = $path;
 
         return $this;
     }
 
-    public function addQuery(string $class, Closure $callback) :self
+    /**
+     * @param string $class
+     * @param Closure $callback
+     * @return Nested
+     */
+    public function addQuery(string $class, Closure $callback) :Nested
     {
         $result = $callback->call(app($class));
 
@@ -36,7 +48,12 @@ class Nested extends Model
         return $this;
     }
 
-    public function params(string $name, $value) :self
+    /**
+     * @param string $name
+     * @param $value
+     * @return Nested
+     */
+    public function params(string $name, $value) :Nested
     {
         $this->map['body'][$name] = $value;
 

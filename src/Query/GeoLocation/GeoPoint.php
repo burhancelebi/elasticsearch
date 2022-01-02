@@ -17,9 +17,9 @@ class GeoPoint extends Model
      * ElasticSearch geo location type
      *
      * @param string $point_type
-     * @return self
+     * @return GeoPoint
      */
-    public function pointType(string $point_type) :self
+    public function pointType(string $point_type) :GeoPoint
     {
         $this->point_type = $point_type;
 
@@ -30,9 +30,9 @@ class GeoPoint extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return GeoPoint
      */
-    public function index(string $index) :self
+    public function index(string $index) :GeoPoint
     {
         $this->map['index'] = $index;
 
@@ -43,9 +43,9 @@ class GeoPoint extends Model
      * Determine the distance between two places
      *
      * @param string $distance
-     * @return self
+     * @return GeoPoint
      */
-    public function distance(string $distance) :self
+    public function distance(string $distance) :GeoPoint
     {
         $this->map['body']['query'][$this->point_type]['distance'] = $distance;
 
@@ -56,9 +56,9 @@ class GeoPoint extends Model
      * You can use this method for custom location query
      *
      * @param array $location
-     * @return self
+     * @return GeoPoint
      */
-    public function location(array $location) :self
+    public function location(array $location) :GeoPoint
     {
         $this->map['body']['query'][$this->point_type] = $location;
 
@@ -70,9 +70,9 @@ class GeoPoint extends Model
      *
      * @param mixed $lat
      * @param mixed $lon
-     * @return self
+     * @return GeoPoint
      */
-    public function topLeft($lat, $lon) :self
+    public function topLeft($lat, $lon) :GeoPoint
     {
         $this->map['body']['query'][$this->point_type]['location']['top_left'] = [
             'lat' => $lat,
@@ -87,9 +87,9 @@ class GeoPoint extends Model
      *
      * @param mixed $lat
      * @param mixed $lon
-     * @return self
+     * @return GeoPoint
      */
-    public function bottomRight($lat, $lon) :self
+    public function bottomRight($lat, $lon) :GeoPoint
     {
         $this->map['body']['query'][$this->point_type]['location']['bottom_right'] = [
             'lat' => $lat,

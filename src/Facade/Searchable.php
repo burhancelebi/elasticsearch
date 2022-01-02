@@ -5,7 +5,6 @@ namespace ElasticSearch\Facade;
 use ElasticSearch\Query\SaveDocument;
 use ElasticSearch\Query\MultiMatch;
 use ElasticSearch\Query\MatchSearch;
-use ElasticSearch\Query\Update;
 use ElasticSearch\Query\FindDocument;
 use ElasticSearch\Query\BoolQuery;
 use ElasticSearch\Query\Query;
@@ -17,9 +16,6 @@ use ElasticSearch\Query\Aggregation;
 use ElasticSearch\Query\Mergeable\Suggest;
 use ElasticSearch\Query\GeoLocation\GeoShape;
 use ElasticSearch\Query\GeoLocation\GeoPoint;
-use Elasticsearch\ClientBuilder;
-use ElasticSearch\ConnectionBuilder;
-use Elasticsearch\Client;
 use ElasticSearch\Authentication\Connection;
 use ElasticSearch\Query\Relations\Nested;
 

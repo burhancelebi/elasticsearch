@@ -15,9 +15,9 @@ class MultiMatch extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return MultiMatch
      */
-    public function index(string $index) :self
+    public function index(string $index) :MultiMatch
     {
         $this->map['index'] = $index;
 
@@ -28,9 +28,9 @@ class MultiMatch extends Model
      * Set the data limit
      *
      * @param  int $size
-     * @return self
+     * @return MultiMatch
      */
-    public function size(int $size) :self
+    public function size(int $size) :MultiMatch
     {
         $this->map['body']['size'] = $size;
 
@@ -40,10 +40,10 @@ class MultiMatch extends Model
     /**
      * Maximum edit distance allowed for matching.
      *
-     * @param  int|nullable $fuzziness
-     * @return self
+     * @param  int $fuzziness
+     * @return MultiMatch
      */
-    public function fuzziness(int $fuzziness = 2) :self
+    public function fuzziness(int $fuzziness = 2) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['fuzziness'] = $fuzziness;
 
@@ -54,9 +54,9 @@ class MultiMatch extends Model
      * The query string.
      *
      * @param  string $text
-     * @return self
+     * @return MultiMatch
      */
-    public function text(string $text) :self
+    public function text(string $text) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['query'] = $text;
 
@@ -67,9 +67,9 @@ class MultiMatch extends Model
      * The fields to be queried.
      *
      * @param  array $fields
-     * @return self
+     * @return MultiMatch
      */
-    public function fields(array $fields) :self
+    public function fields(array $fields) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['fields'] = $fields;
 
@@ -81,9 +81,9 @@ class MultiMatch extends Model
      * best_fields, most_fields, cross_fields, phrase, phrase_prefix, bool_prefix
      *
      * @param  string $type
-     * @return self
+     * @return MultiMatch
      */
-    public function type(string $type) :self
+    public function type(string $type) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['type'] = $type;
 
@@ -94,9 +94,9 @@ class MultiMatch extends Model
      * The analyzer parameter specifies the analyzer used for text analysis when indexing or searching a text field.
      *
      * @param  string $analyzer
-     * @return self
+     * @return MultiMatch
      */
-    public function analyzer(string $analyzer) :self
+    public function analyzer(string $analyzer) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['analyzer'] = $analyzer;
 
@@ -110,9 +110,9 @@ class MultiMatch extends Model
      * It accepts: 0.0, 1.0, 0.0 < n < 1.0
      *
      * @param  mixed $tie_breaker
-     * @return self
+     * @return MultiMatch
      */
-    public function tieBreaker($tie_breaker) :self
+    public function tieBreaker($tie_breaker) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['tie_breaker'] = $tie_breaker;
 
@@ -123,9 +123,9 @@ class MultiMatch extends Model
      * The operator flag can be set to or or and to control the boolean clauses (defaults to or).
      *
      * @param  string $operator
-     * @return self
+     * @return MultiMatch
      */
-    public function operator(string $operator) :self
+    public function operator(string $operator) :MultiMatch
     {
         $this->map['body']['query']['multi_match']['operator'] = $operator;
 

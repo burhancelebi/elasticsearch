@@ -16,9 +16,9 @@ class Index extends Model
      * Set the index name
      *
      * @param  string $name
-     * @return self
+     * @return Index
      */
-    public function name(string $name) :self
+    public function name(string $name) :Index
     {
         $this->map['index'] = $name;
 
@@ -29,22 +29,22 @@ class Index extends Model
      * Settings of index
      *
      * @param  array $settings
-     * @return self
+     * @return Index
      */
-    public function settings(array $settings) :self
+    public function settings(array $settings) :Index
     {
         $this->map['body']['settings'] = $settings;
 
         return $this;
     }
-    
+
     /**
      * Mappings of index
      *
-     * @param  Closure $mappings
-     * @return void
+     * @param Closure $mappings
+     * @return Index
      */
-    public function mappings(Closure $mappings) :self
+    public function mappings(Closure $mappings) :Index
     {
         $mappings = $mappings->call(new Mapping);
 
@@ -52,11 +52,11 @@ class Index extends Model
         
         return $this;
     }
-    
+
     /**
      * Function will be created index
      *
-     * @return Model createIndex
+     * @return array createIndex
      */
     public function create() :array
     {

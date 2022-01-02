@@ -20,9 +20,9 @@ class Highlight extends Model
      * Instead, the entire field contents are highlighted and returned
      *
      * @param  int $value
-     * @return self
+     * @return Highlight
      */
-    public function numberOfFragments(int $value) :self
+    public function numberOfFragments(int $value) :Highlight
     {
         $this->map['body']['highlight']['fields']['number_of_fragments'] = $value;
 
@@ -34,9 +34,9 @@ class Highlight extends Model
      * You can set fragment_size to 0 to never split any sentence.
      *
      * @param  int $value
-     * @return self
+     * @return Highlight
      */
-    public function fragmentSize(int $value) :self
+    public function fragmentSize(int $value) :Highlight
     {
         $this->map['body']['highlight']['fields']['fragment_size'] = $value;
 
@@ -49,9 +49,9 @@ class Highlight extends Model
      * @param  string $content
      * @param  string $pre_tags
      * @param  string $post_tags
-     * @return self
+     * @return Highlight
      */
-    public function content(string $content, string $pre_tags, string $post_tags) :self
+    public function content(string $content, string $pre_tags, string $post_tags) :Highlight
     {
         $this->map['body']['highlight']['fields'][$content] = [
                                 'pre_tags' => $pre_tags,

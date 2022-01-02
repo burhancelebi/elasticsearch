@@ -17,9 +17,9 @@ class MatchPhrase extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return MatchPhrase
      */
-    public function index(string $index) :self
+    public function index(string $index) :MatchPhrase
     {
         $this->map['index'] = $index;
 
@@ -30,9 +30,9 @@ class MatchPhrase extends Model
      * Determine which field will be searched
      *
      * @param  string $field
-     * @return self
+     * @return MatchPhrase
      */
-    public function field(string $field) :self
+    public function field(string $field) :MatchPhrase
     {
         $this->field = $field;
 
@@ -43,9 +43,9 @@ class MatchPhrase extends Model
      * Search a text in your query
      *
      * @param  string $text
-     * @return self
+     * @return MatchPhrase
      */
-    public function text(string $text) :self
+    public function text(string $text) :MatchPhrase
     {
         $this->map['body']['query']['match_phrase'][$this->field]['query'] = $text;
 
@@ -56,9 +56,9 @@ class MatchPhrase extends Model
      * Set the some features in your query.
      *
      * @param  mixed $addition
-     * @return self
+     * @return MatchPhrase
      */
-    public function addition(array $addition) :self
+    public function addition(array $addition) :MatchPhrase
     {
         $this->map['body']['query']['match_phrase'][$this->field] += $addition;
 

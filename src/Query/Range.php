@@ -15,16 +15,20 @@ class Range extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return Range
      */
-    public function index(string $index) :self
+    public function index(string $index) :Range
     {
         $this->map['index'] = $index;
 
         return $this;
     }
 
-    public function content(array $content) :self
+    /**
+     * @param array $content
+     * @return $this
+     */
+    public function content(array $content) :Range
     {
         $this->map['body']['query']['range'] = $content;
 
@@ -35,9 +39,9 @@ class Range extends Model
      * Set the data limit
      *
      * @param  mixed $size
-     * @return self
+     * @return Range
      */
-    public function size(int $size) :self
+    public function size(int $size) :Range
     {
         $this->map['body']['size'] = $size;
 
