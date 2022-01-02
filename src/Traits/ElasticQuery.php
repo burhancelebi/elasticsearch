@@ -15,11 +15,9 @@ trait ElasticQuery
     {
         return $this->map;
     }
-    
+
     /**
-     * Search in ElasticSearch
-     *
-     * @param  array|nullable $keys
+     * @param array $keys
      * @return array
      */
     public function search(array $keys = []) :array
@@ -28,7 +26,7 @@ trait ElasticQuery
 
         if ( $keys ) {
             $result = [];
-            foreach ($keys as $key => $value) {
+            foreach ($keys as $value) {
                 $result[$value] = $search[$value];
             }
 

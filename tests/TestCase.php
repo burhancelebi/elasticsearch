@@ -4,7 +4,6 @@ namespace ElasticSearch\Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use ElasticSearch\ElasticSearchServiceProvider;
-use Illuminate\Support\Str;
 use ElasticSearch\ElasticSearch;
 
 abstract class TestCase extends OrchestraTestCase

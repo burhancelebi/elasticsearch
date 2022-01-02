@@ -15,9 +15,9 @@ class SimplePhrase extends Model
      * Set the field of phrase
      *
      * @param  string $field
-     * @return self
+     * @return SimplePhrase
      */
-    public function field(string $field) :self
+    public function field(string $field) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['phrase']['field'] = $field;
 
@@ -28,9 +28,9 @@ class SimplePhrase extends Model
      * Set the data limit
      *
      * @param  int $size
-     * @return self
+     * @return SimplePhrase
      */
-    public function size(int $size) :self
+    public function size(int $size) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['phrase']['size'] = $size;
 
@@ -47,9 +47,9 @@ class SimplePhrase extends Model
      * max_term_freq, pre_filter, post_filter, max_inspections, min_doc_freq,
      *
      * @param  mixed $direct_generator
-     * @return self
+     * @return SimplePhrase
      */
-    public function directGenerator(array $direct_generator) :self
+    public function directGenerator(array $direct_generator) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['phrase']['direct_generator'] = $direct_generator;
 
@@ -61,9 +61,9 @@ class SimplePhrase extends Model
      * for which no matching docs exist in the index. 
      *
      * @param  array $collate
-     * @return self
+     * @return SimplePhrase
      */
-    public function collate(array $collate) :self
+    public function collate(array $collate) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['phrase']['collate'] = $collate;
         
@@ -78,9 +78,9 @@ class SimplePhrase extends Model
      * Each smoothing model supports specific properties that can be configured.
      *
      * @param  array $smoothing
-     * @return self
+     * @return SimplePhrase
      */
-    public function smoothing(array $smoothing) :self
+    public function smoothing(array $smoothing) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['phrase']['smoothing'] = $smoothing;
         
@@ -93,9 +93,9 @@ class SimplePhrase extends Model
      * If provided must contain exactly pre_tag and post_tag.
      *
      * @param  array $highlight
-     * @return self
+     * @return SimplePhrase
      */
-    public function highlight(array $highlight) :self
+    public function highlight(array $highlight) :SimplePhrase
     {
         $this->map['body']['simple_phrase']['highlight'] = $highlight;
 

@@ -2,9 +2,8 @@
 
 namespace ElasticSearch\Authentication;
 
-use Elasticsearch\ClientBuilder;
-use ElasticSearch\ElasticSearch;
 use Elasticsearch\Client;
+use Elasticsearch\ClientBuilder;
 
 class Connection
 {
@@ -21,7 +20,7 @@ class Connection
      * @param  string $cloud_id
      * @return self
      */
-    public function cloudId(string $cloud_id) :self
+    public function cloudId(string $cloud_id) :Connection
     {
         self::$client = self::$client->setElasticCloudId($cloud_id);
 
@@ -35,7 +34,7 @@ class Connection
      * @param  mixed $password
      * @return self
      */
-    public function basicAuth(string $username, string $password) :self
+    public function basicAuth(string $username, string $password) :Connection
     {
         self::$client = self::$client->setBasicAuthentication($username, $password);
 
@@ -51,7 +50,7 @@ class Connection
      * @param  string $certificate
      * @return self
      */
-    public function sslVerification(string $certificate) :self
+    public function sslVerification(string $certificate) :Connection
     {
         self::$client = self::$client->setSSLVerification($certificate);
 
@@ -67,7 +66,7 @@ class Connection
      * @param  string $key
      * @return self
      */
-    public function apiKey(string $id, string $key) :self
+    public function apiKey(string $id, string $key) :Connection
     {
         self::$client = self::$client->setApiKey($id, $key);
 
@@ -82,19 +81,17 @@ class Connection
      * @param  array $hosts
      * @return self
      */
-    public function hosts(array $hosts) :self
+    public function hosts(array $hosts) :Connection
     {
         self::$client = self::$client->setHosts($hosts);
 
         return $this;
     }
-    
+
     /**
-     * Get the Elastic Client
-     *
-     * @return Elasticsearch\Client
+     * @return Client
      */
-    public static function client(): \Elasticsearch\Client
+    public static function client(): Client
     {
         if (is_null(self::$client))
             return ClientBuilder::create()->build();

@@ -14,16 +14,16 @@ class Mapping
      * Set suggest mapping to use in index
      *
      * @param  array $suggest
-     * @return self
+     * @return Mapping
      */
-    public function suggest(array $suggest) :self
+    public function suggest(array $suggest) :Mapping
     {
         $this->map['body']['mappings']['properties']['suggest'] = $suggest;
 
         return $this;
     }
 
-    public function body(array $body) :self
+    public function body(array $body) :Mapping
     {
         $this->map['body']['mappings'] = $body;
 
@@ -37,7 +37,7 @@ class Mapping
      * @param  array $features
      * @return void
      */
-    public function property(string $name, array $features) :self
+    public function property(string $name, array $features) :Mapping
     {
         $this->map['body']['mappings']['properties'][$name] = $features;
 

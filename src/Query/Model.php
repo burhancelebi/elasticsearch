@@ -3,14 +3,16 @@
 namespace ElasticSearch\Query;
 
 use ElasticSearch\Authentication\Connection;
+use Elasticsearch\Client;
 
 class Model
 {
-    private $client;
-    
-    public function client()
+    /**
+     * @return Client
+     */
+    public function client(): Client
     {
-        return $this->client = Connection::client();
+        return Connection::client();
     }
     
     /**

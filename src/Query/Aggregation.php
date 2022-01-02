@@ -27,9 +27,9 @@ class Aggregation extends Model
      * Set index to search in
      *
      * @param  mixed $index
-     * @return self
+     * @return Aggregation
      */
-    public function index(string $index) :self
+    public function index(string $index) :Aggregation
     {
         $this->map['index'] = $index;
 
@@ -40,9 +40,9 @@ class Aggregation extends Model
      * Set a name to get results for the name aggregation that you set.
      *
      * @param  string $aggs_name
-     * @return self
+     * @return Aggregation
      */
-    public function name(string $aggs_name) :self
+    public function name(string $aggs_name) :Aggregation
     {
         $this->aggs_name = $aggs_name;
 
@@ -53,9 +53,9 @@ class Aggregation extends Model
      * Returns documents that contain an exact term in a provided field.
      *
      * @param  array $terms
-     * @return self
+     * @return Aggregation
      */
-    public function terms(array $terms) :self
+    public function terms(array $terms) :Aggregation
     {
         $this->map['body']['aggs'][$this->aggs_name]['terms'] = $terms;
 
@@ -66,9 +66,9 @@ class Aggregation extends Model
      * Set an aggregate query, just use this function
      *
      * @param  array $body
-     * @return self
+     * @return Aggregation
      */
-    public function body(array $body) :self
+    public function body(array $body) :Aggregation
     {
         $this->map['body']['aggs'] = $body;
 
@@ -79,9 +79,9 @@ class Aggregation extends Model
      * Use the meta object to associate custom metadata with an aggregation.
      *
      * @param  array $meta
-     * @return self
+     * @return Aggregation
      */
-    public function meta(array $meta) :self
+    public function meta(array $meta) :Aggregation
     {
         $this->map['body']['aggs'][$this->aggs_name]['meta'] = $meta;
 
@@ -92,9 +92,9 @@ class Aggregation extends Model
      * Set aggregation scope to calculate data or what you want 
      *
      * @param  array $scope
-     * @return self
+     * @return Aggregation
      */
-    public function scope(array $scope) :self
+    public function scope(array $scope) :Aggregation
     {
         $this->map['body']['aggs'][$this->aggs_name] = $scope;
 
@@ -108,9 +108,9 @@ class Aggregation extends Model
      * There is no level or depth limit for nesting sub-aggregations.
      *
      * @param  Closure $sub_aggs
-     * @return self
+     * @return Aggregation
      */
-    public function subAggs(Closure $sub_aggs) :self
+    public function subAggs(Closure $sub_aggs) :Aggregation
     {
         $sub_aggs = $sub_aggs->call(new self);
         
@@ -124,9 +124,9 @@ class Aggregation extends Model
      * To return only aggregation results, set size to 0
      *
      * @param  int $size
-     * @return self
+     * @return Aggregation
      */
-    public function size(int $size) :self
+    public function size(int $size) :Aggregation
     {
         $this->map['size'] = $size;
 
@@ -137,9 +137,9 @@ class Aggregation extends Model
      * Run multiple aggregations by adding new aggregation
      *
      * @param  Closure $aggs
-     * @return self
+     * @return Aggregation
      */
-    public function addAggs(Closure $aggs) :self
+    public function addAggs(Closure $aggs) :Aggregation
     {
         $aggs = $aggs->call(new self)['body']['aggs'];
         

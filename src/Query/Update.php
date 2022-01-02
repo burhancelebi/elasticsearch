@@ -8,6 +8,10 @@ class Update extends Model
 {
     private array $map = Mapper::UPDATE;
 
+    /**
+     * @param array $document
+     * @return array
+     */
     public function update(array $document) :array
     {
         $this->map['index'] = $document['index'];

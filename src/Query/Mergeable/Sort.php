@@ -11,10 +11,12 @@ class Sort extends Model
     use ElasticQuery;
     
     private string $name;
-    
+
+    private string $field;
+
     private array $map = Mapper::SORT;
 
-    public function index(string $index)
+    public function index(string $index): Sort
     {
         $this->map['index'] = $index;
 
@@ -25,9 +27,9 @@ class Sort extends Model
      * Set the sort by field. Example: id, age
      *
      * @param  string $field
-     * @return self
+     * @return Sort
      */
-    public function field(string $field) :self
+    public function field(string $field) :Sort
     {
         $this->field = $field;
         
@@ -40,9 +42,9 @@ class Sort extends Model
      * Determine order. Example: dest, asc
      *
      * @param  string $order
-     * @return self
+     * @return Sort
      */
-    public function order(string $order) :self
+    public function order(string $order) :Sort
     {
         $this->map['body']['sort'][$this->field]['order'] = $order;
 

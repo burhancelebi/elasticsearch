@@ -15,9 +15,9 @@ class MatchSearch extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return MatchSearch
      */
-    public function index(string $index) :self
+    public function index(string $index) :MatchSearch
     {
         $this->map['index'] = $index;
 
@@ -28,9 +28,9 @@ class MatchSearch extends Model
      * field
      *
      * @param  mixed $data
-     * @return self
+     * @return MatchSearch
      */
-    public function field(array $data) :self
+    public function field(array $data) :MatchSearch
     {        
         $this->map['body']['query']['match'] = $data;
 

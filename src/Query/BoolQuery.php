@@ -21,9 +21,9 @@ class BoolQuery extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return BoolQuery
      */
-    public function index(string $index) :self
+    public function index(string $index) :BoolQuery
     {
         $this->map['index'] = $index;
 
@@ -34,9 +34,9 @@ class BoolQuery extends Model
      * The clause (query) must appear in matching documents and will contribute to the score.
      *
      * @param  array $content
-     * @return self
+     * @return BoolQuery
      */
-    public function must(array $content) :self
+    public function must(array $content) :BoolQuery
     {
         $this->map['body']['query']['bool']['must'] = $content;
 
@@ -50,9 +50,9 @@ class BoolQuery extends Model
      * and clauses are considered for caching.
      *
      * @param  array $filter
-     * @return self
+     * @return BoolQuery
      */
-    public function filter(array $filter) :self
+    public function filter(array $filter) :BoolQuery
     {
         $this->map['body']['query']['bool']['filter'] = $filter;
 
@@ -65,9 +65,9 @@ class BoolQuery extends Model
      * Because scoring is ignored, a score of 0 for all documents is returned.
      *
      * @param  array $content
-     * @return self
+     * @return BoolQuery
      */
-    public function mustNot(array $content) :self
+    public function mustNot(array $content) :BoolQuery
     {
         $this->map['body']['query']['bool']['must_not'] = $content;
 
@@ -78,9 +78,9 @@ class BoolQuery extends Model
      * The clause (query) should appear in the matching document.
      *
      * @param  array $content
-     * @return self
+     * @return BoolQuery
      */
-    public function should(array $content) :self
+    public function should(array $content) :BoolQuery
     {
         $this->map['body']['query']['bool']['should'] = $content;
 
@@ -92,9 +92,9 @@ class BoolQuery extends Model
      * clauses returned documents must match.
      *
      * @param  int $minimum_should_match
-     * @return self
+     * @return BoolQuery
      */
-    public function minimum_should_match(int $minimum_should_match) :self
+    public function minimum_should_match(int $minimum_should_match) :BoolQuery
     {
         $this->map['body']['query']['bool']['minimum_should_match'] = $minimum_should_match;
 
@@ -105,9 +105,9 @@ class BoolQuery extends Model
      * Individual fields can be boosted automatically — count more towards the relevance score — at query time,
      *
      * @param  int $boost
-     * @return self
+     * @return BoolQuery
      */
-    public function boost(int $boost) :self
+    public function boost(int $boost) :BoolQuery
     {
         $this->map['body']['query']['bool']['boost'] = $boost;
 
@@ -119,9 +119,9 @@ class BoolQuery extends Model
      *
      * @param  string $filter
      * @param  Closure $geoFilter
-     * @return self
+     * @return BoolQuery
      */
-    public function addGeoFilter(string $filter, Closure $geoFilter) :self
+    public function addGeoFilter(string $filter, Closure $geoFilter) :BoolQuery
     {
         $filter = $geoFilter->call(app($filter))['body']['query'];
         

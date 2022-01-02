@@ -2,9 +2,7 @@
 
 namespace ElasticSearch\Query\Mergeable;
 
-use ElasticSearch\Mappers\Mapper;
 use Closure;
-use ElasticSearch\Query\Mergeable\SimplePhrase;
 use ElasticSearch\Query\Model;
 use ElasticSearch\Traits\ElasticQuery;
 
@@ -24,9 +22,9 @@ class Suggest extends Model
      * Set the id when adding a data
      *
      * @param  mixed $id
-     * @return self
+     * @return Suggest
      */
-    public function id($id) :self
+    public function id($id) :Suggest
     {
         $this->map['id'] = $id;
 
@@ -37,9 +35,9 @@ class Suggest extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return Suggest
      */
-    public function index(string $index) :self
+    public function index(string $index) :Suggest
     {
         $this->map['index'] = $index;
 
@@ -50,9 +48,9 @@ class Suggest extends Model
      * Set the suggestion name
      *
      * @param  string $name
-     * @return self
+     * @return Suggest
      */
-    public function name(string $name) :self
+    public function name(string $name) :Suggest
     {
         $this->name = $name;
 
@@ -63,9 +61,9 @@ class Suggest extends Model
      * Prefix used to search for suggestions
      *
      * @param  string $prefix
-     * @return self
+     * @return Suggest
      */
-    public function prefix(string $prefix) :self
+    public function prefix(string $prefix) :Suggest
     {
         $this->map['body']['suggest']['prefix'] = $prefix;
 
@@ -79,9 +77,9 @@ class Suggest extends Model
      * It is not meant for spell correction or did-you-mean functionality like the term or phrase suggesters.
      *
      * @param  array $completion
-     * @return self
+     * @return Suggest
      */
-    public function completion(array $completion) :self
+    public function completion(array $completion) :Suggest
     {
         $this->map['body']['suggest'][$this->name]['completion'] = $completion;
 
@@ -94,9 +92,9 @@ class Suggest extends Model
      * You can define multiple context mappings for a completion field.
      *
      * @param  array $contexts
-     * @return self
+     * @return Suggest
      */
-    public function contexts(array $contexts) :self
+    public function contexts(array $contexts) :Suggest
     {
         $this->map['body']['suggest']['contexts'] = $contexts;
 
@@ -107,9 +105,9 @@ class Suggest extends Model
      * The completion suggester also supports regex queries meaning you can express a prefix as a regular expression.
      *
      * @param  string $regex
-     * @return self
+     * @return Suggest
      */
-    public function regex(string $regex) :self
+    public function regex(string $regex) :Suggest
     {
         $this->map['body']['suggest'][$this->name]['regex'] = $regex;
 
@@ -120,9 +118,9 @@ class Suggest extends Model
      * An input is the expected text to be matched by a suggestion query
      *
      * @param  array $input
-     * @return self
+     * @return Suggest
      */
-    public function input(array $input) :self
+    public function input(array $input) :Suggest
     {
         $this->map['body']['suggest'] = $input;
 
@@ -133,9 +131,9 @@ class Suggest extends Model
      * weight determines how the suggestions will be scored.
      *
      * @param  int $weight
-     * @return self
+     * @return Suggest
      */
-    public function weight(int $weight) :self
+    public function weight(int $weight) :Suggest
     {
         $this->map['body']['suggest']['weight'] = $weight;
 
@@ -146,9 +144,9 @@ class Suggest extends Model
      * Enter the text to be searched.
      *
      * @param  string $text
-     * @return self
+     * @return Suggest
      */
-    public function text(string $text) :self
+    public function text(string $text) :Suggest
     {
         $this->map['body']['suggest'][$this->name]['text'] = $text;
 
@@ -159,9 +157,9 @@ class Suggest extends Model
      * The suggest feature suggests similar looking terms based on a provided text by using a suggester.
      *
      * @param  array $term
-     * @return self
+     * @return Suggest
      */
-    public function term(array $term) :self
+    public function term(array $term) :Suggest
     {
         $this->map['body']['suggest'][$this->name]['term'] = $term;
 
@@ -172,9 +170,9 @@ class Suggest extends Model
      * Add a new suggest. This function provides multiple suggestions to be used in a single query.
      *
      * @param  Closure $suggest
-     * @return self
+     * @return Suggest
      */
-    public function addSuggest(Closure $suggest) :self
+    public function addSuggest(Closure $suggest) :Suggest
     {
         $suggest = $suggest->call(new self)['body']['suggest'];
         
@@ -187,9 +185,9 @@ class Suggest extends Model
      * This function provides simple phrase to be used in suggestion.
      *
      * @param  Closure $phrase
-     * @return self
+     * @return Suggest
      */
-    public function simplePhrase(Closure $phrase) :self
+    public function simplePhrase(Closure $phrase) :Suggest
     {
         $phrase = $phrase->call(new SimplePhrase)['body']['simple_phrase'];
         
@@ -197,11 +195,11 @@ class Suggest extends Model
 
         return $this;
     }
-    
+
     /**
      * Function will be saved suggestion data.
      *
-     * @return void
+     * @return array
      */
     public function save() :array
     {

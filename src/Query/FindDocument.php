@@ -14,11 +14,12 @@ class FindDocument extends Model
         $this->map['index'] = $arg[0];
         $this->map['id'] = $arg[1];
     }
-    
+
     /**
      * Return document from ElasticSearch
      *
-     * @return Model getDocument
+     * @return array getDocument
+     * @throws DocumentNotFound
      */
     public function get() :array
     {
@@ -28,13 +29,13 @@ class FindDocument extends Model
             throw new DocumentNotFound("Document Not Found \n" . $e->getMessage());
         }
     }
-    
+
     /**
      * Function can delete and update document that searched data
      *
-     * @param  callable $function
-     * @param  mixed $arg
-     * @return app($function);
+     * @param callable $function
+     * @param mixed $arg
+     * @return array ($function);
      */
     public function __call($function, $arg) :array
     {

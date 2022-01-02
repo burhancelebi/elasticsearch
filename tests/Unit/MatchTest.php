@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace ElasticSearch\Tests\Unit;
+
 use ElasticSearch\Tests\TestCase;
 
 final class MatchTest extends TestCase

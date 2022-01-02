@@ -7,8 +7,8 @@ use ElasticSearch\Traits\ElasticQuery;
 class Query extends Model
 {
     use ElasticQuery;
-    
-    private array $map = [];
+
+    private array $map;
 
     public function __construct(array $map)
     {

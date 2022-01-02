@@ -19,9 +19,9 @@ class SaveDocument extends Model
      * Search in index(s)
      *
      * @param string $index
-     * @return self
+     * @return SaveDocument
      */
-    public function index(string $index) :self
+    public function index(string $index) :SaveDocument
     {
         $this->map['index'] = $index;
 
@@ -32,22 +32,22 @@ class SaveDocument extends Model
      *
      * @param  string $name
      * @param  mixed $value
-     * @return self
+     * @return SaveDocument
      */
-    public function setParam(string $name, $value) :self
+    public function setParam(string $name, $value) :SaveDocument
     {
         $this->map[$name] = $value;
 
         return $this;
     }
-    
+
     /**
      * Set the document id
      *
-     * @param  int $id
-     * @return self
+     * @param int|null $id
+     * @return SaveDocument
      */
-    public function id(int $id = null) :self
+    public function id(int $id = null) :SaveDocument
     {
         $this->map['id'] = $id;
 
@@ -58,9 +58,9 @@ class SaveDocument extends Model
      * Set the data to add an index.
      *
      * @param  array $body
-     * @return self
+     * @return SaveDocument
      */
-    public function body(array $body): self
+    public function body(array $body): SaveDocument
     {
         $this->map['body'] = $body;
         

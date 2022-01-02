@@ -3,8 +3,12 @@
 namespace ElasticSearch;
 
 use ElasticSearch\Facade\Searchable;
-use Elasticsearch\Client;
 
+/**
+ * Class ElasticSearch
+ * @package ElasticSearch
+ * @mixin Searchable
+ */
 class ElasticSearch
 {
     private $elastic = Searchable::class;
